@@ -15,7 +15,7 @@ const (
 	second = 19
 )
 
-var r = regexp.MustCompile(`(?m)^((((((\d\d\d\d)-\d\d)-\d\d) \d\d):\d\d):\d\d)\t(.*)$`)
+var RegAll = regexp.MustCompile(`(?m)^((((((\d\d\d\d)-\d\d)-\d\d) \d\d):\d\d):\d\d)\t(.*)$`)
 
 var acceptedDateFMT = regexp.MustCompile(
 	`(?m)^(((\d{4})(-\d\d){2} \d\d(:\d\d){2})` +

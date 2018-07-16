@@ -4,10 +4,10 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/mdebelle/milionlogs/data"
+	"github.com/mdebelle/millionlogs/data"
 )
 
-func insert(reg *regexp.Regexp, modif time.Time, logline []byte) {
+func Insert(reg *regexp.Regexp, modif time.Time, logline []byte) {
 
 	matches := reg.FindAllSubmatch(logline, -1)
 	if len(matches) == 0 {
@@ -24,7 +24,7 @@ func insert(reg *regexp.Regexp, modif time.Time, logline []byte) {
 	v.(data.Data).LoadOrStore(line, &count)
 }
 
-func insertAll(reg *regexp.Regexp, modif time.Time, logline []byte) {
+func InsertAll(reg *regexp.Regexp, modif time.Time, logline []byte) {
 
 	matches := reg.FindAllSubmatch(logline, -1)
 	if len(matches) == 0 {

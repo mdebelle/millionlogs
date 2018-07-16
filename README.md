@@ -17,14 +17,18 @@ Usage of $GOPATH/bin/millionlogs:
         preloading all data for faster requests but longer init
   -prerank
         preranking all data for faster requests but longer init
-$>$GOPATH/bin/millionlogs -port :8080 -preload -prerank
+  -sample
+        set your sample (.tsv) file path location (default "sample/small.tsv")
+$>$GOPATH/bin/millionlogs -port :8080 -preload -prerank -sample "sample/hn_logs.tsv"
 server init...
+selected file sample/hn_logs.tsv
 initialisation took 57.151083374s
 server ready on port :8080
 [GET] /1/queries/popular/2015?size=2000 took 5.672263ms
 ^C
-$>$GOPATH/bin/millionlogs
+$>$GOPATH/bin/millionlogs -sample "sample/hn_logs.tsv"
 server init...
+selected file sample/hn_logs.tsv
 initialisation took 28.775µs
 server ready on port :8080
 [GET] /1/queries/popular/2015?size=2000 took 7.013133889s

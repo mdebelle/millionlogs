@@ -5,13 +5,13 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/mdebelle/milionlogs/data"
+	"github.com/mdebelle/millionlogs/data"
 )
 
 var Sample *string
 var Prerank *bool
 
-func loadOrCreate(date string) (data.Data, int, error) {
+func LoadOrCreate(date string) (data.Data, int, error) {
 
 	info, err := os.Lstat(*Sample)
 	if err != nil {
@@ -29,7 +29,7 @@ func loadOrCreate(date string) (data.Data, int, error) {
 	if err != nil {
 		return nil, status, err
 	}
-	if err := scan(reg, filechange, insert); err != nil {
+	if err := Scan(reg, filechange, Insert); err != nil {
 		return nil, http.StatusInternalServerError, err
 	}
 	if d, ok := requests.Load(date); ok {

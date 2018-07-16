@@ -7,6 +7,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/mdebelle/millionlogs/store"
 )
 
 func writeJson(w http.ResponseWriter, v interface{}, status int) {
@@ -35,7 +37,7 @@ func popular(w http.ResponseWriter, r *http.Request) {
 
 	date := strings.Replace(r.URL.Path, "/1/queries/popular/", "", 1)
 	size := r.URL.Query().Get("size")
-	v, status, err := loadOrCreate(date)
+	v, status, err := store.LoadOrCreate(date)
 	if err != nil {
 		writeJson(w, err.Error(), status)
 		return
@@ -60,7 +62,7 @@ func count(w http.ResponseWriter, r *http.Request) {
 	}
 
 	date := strings.Replace(r.URL.Path, "/1/queries/count/", "", 1)
-	v, status, err := loadOrCreate(date)
+	v, status, err := store.LoadOrCreate(date)
 	if err != nil {
 		writeJson(w, err.Error(), status)
 		return

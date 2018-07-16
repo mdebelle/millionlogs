@@ -6,7 +6,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/mdebelle/milionlogs/query"
+	"github.com/mdebelle/millionlogs/query"
 )
 
 type Data interface {

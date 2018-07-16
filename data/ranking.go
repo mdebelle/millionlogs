@@ -4,7 +4,7 @@ import (
 	"sort"
 	"sync/atomic"
 
-	"github.com/mdebelle/milionlogs/query"
+	"github.com/mdebelle/millionlogs/query"
 )
 
 func (d *data) Ranking() int {

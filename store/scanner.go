@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/mdebelle/milionlogs/data"
+	"github.com/mdebelle/millionlogs/data"
 )
 
 var requests = &sync.Map{}
@@ -22,7 +22,7 @@ func RankingAll() {
 
 type insertFunc func(*regexp.Regexp, time.Time, []byte)
 
-func scan(reg *regexp.Regexp, modif time.Time, f insertFunc) error {
+func Scan(reg *regexp.Regexp, modif time.Time, f insertFunc) error {
 	content, err := os.Open(*Sample)
 	if err != nil {
 		log.Fatal(err)
