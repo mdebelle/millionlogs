@@ -15,6 +15,8 @@ const (
 	second = 19
 )
 
+// RegAll is a regular expression that contain a group for each possible date
+// composed of 6 groups for date and 1 group for the query
 var RegAll = regexp.MustCompile(`(?m)^((((((\d\d\d\d)-\d\d)-\d\d) \d\d):\d\d):\d\d)\t(.*)$`)
 
 var acceptedDateFMT = regexp.MustCompile(

@@ -8,9 +8,15 @@ import (
 	"github.com/mdebelle/millionlogs/data"
 )
 
+// Sample is the flag which contain the file path
 var Sample *string
+
+// Prerank is the flag option
 var Prerank *bool
 
+// LoadOrCreate try to load Data associated to the date parameter
+// If no Data found it will try to create it
+// this function take care of the file changement
 func LoadOrCreate(date string) (data.Data, int, error) {
 
 	info, err := os.Lstat(*Sample)

@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
+	"log"
 	"net/http"
 	"strconv"
 	"strings"
@@ -20,7 +20,7 @@ func writeJson(w http.ResponseWriter, v interface{}, status int) {
 }
 
 func chronoRequest(r *http.Request, start time.Time) {
-	fmt.Printf(
+	log.Printf(
 		"[%s] %s took %v\n",
 		r.Method, r.URL.String(), time.Since(start),
 	)

@@ -7,6 +7,7 @@ import (
 	"github.com/mdebelle/millionlogs/data"
 )
 
+// Insert create or update Data only for the requested date
 func Insert(reg *regexp.Regexp, modif time.Time, logline []byte) {
 
 	matches := reg.FindAllSubmatch(logline, -1)
@@ -24,6 +25,7 @@ func Insert(reg *regexp.Regexp, modif time.Time, logline []byte) {
 	v.(data.Data).LoadOrStore(line, &count)
 }
 
+// InsertAll create or update Data for all date possibility in the logline
 func InsertAll(reg *regexp.Regexp, modif time.Time, logline []byte) {
 
 	matches := reg.FindAllSubmatch(logline, -1)
