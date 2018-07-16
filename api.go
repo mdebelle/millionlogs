@@ -49,7 +49,9 @@ func popular(w http.ResponseWriter, r *http.Request) {
 		writeJson(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-	writeJson(w, v.Popular(max), status)
+	writeJson(w, struct {
+		Queries interface{} `json:"queries"`
+	}{v.Popular(max)}, status)
 }
 
 func count(w http.ResponseWriter, r *http.Request) {

@@ -53,20 +53,22 @@ GET `http://localhost:8080/1/queries/popular/2015?size=3`
 
 response `200 OK`
 ```json
-[
-    {
-        "query": "http%3A%2F%2Fwww.getsidekick.com%2Fblog%2Fbody-language-advice",
-        "count": 6675
-    },
-    {
-        "query": "http%3A%2F%2Fwebboard.yenta4.com%2Ftopic%2F568045",
-        "count": 4652
-    },
-    {
-        "query": "http%3A%2F%2Fwebboard.yenta4.com%2Ftopic%2F379035%3Fsort%3D1",
-        "count": 3100
-    }
-]
+{
+    "queries": [
+        {
+            "query": "http%3A%2F%2Fwww.getsidekick.com%2Fblog%2Fbody-language-advice",
+            "count": 6675
+        },
+        {
+            "query": "http%3A%2F%2Fwebboard.yenta4.com%2Ftopic%2F568045",
+            "count": 4652
+        },
+        {
+            "query": "http%3A%2F%2Fwebboard.yenta4.com%2Ftopic%2F379035%3Fsort%3D1",
+            "count": 3100
+        }
+    ]
+}
 ```
 
 ### note
