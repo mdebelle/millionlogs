@@ -13,6 +13,10 @@ func insert(date, query string, modif time.Time) {
 	if !ok {
 		v = data.New(modif)
 		requests.Store(date, v)
+	} else if v.(data.Data).Filechange() != modif {
+		requests.Delete(date)
+		v = data.New(modif)
+		requests.Store(date, v)
 	}
 	var count int32 = 1
 	v.(data.Data).LoadOrStore(query, &count)

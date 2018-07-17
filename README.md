@@ -19,21 +19,24 @@ Usage of $GOPATH/bin/millionlogs:
         preranking all data for faster requests but longer init
   -sample
         set your sample (.tsv) file path location (default "sample/small.tsv")
+$>wc -l sample/hn_logs.tsv
+ 1623420 sample/hn_logs.tsv
 $>$GOPATH/bin/millionlogs -port :8080 -preload -prerank -sample "sample/hn_logs.tsv"
-server init...
-selected file sample/hn_logs.tsv
-initialisation took 57.151083374s
-server ready on port :8080
-[GET] /1/queries/popular/2015?size=2000 took 5.672263ms
+2018/07/17 23:52:48 server init...
+2018/07/17 23:52:48 selected file sample/hn_logs.tsv
+2018/07/17 23:53:29 initialisation took 40.734273395s
+2018/07/17 23:53:29 server ready on port :8080
+2018/07/17 23:53:37 [GET] /1/queries/popular/2015?size=2000 took 2.121843ms
+2018/07/17 23:53:44 [GET] /1/queries/popular/2015?size=2000 took 2.086858ms
 ^C
 $>$GOPATH/bin/millionlogs -sample "sample/hn_logs.tsv"
-server init...
-selected file sample/hn_logs.tsv
-initialisation took 28.775µs
-server ready on port :8080
-[GET] /1/queries/popular/2015?size=2000 took 7.013133889s
-[GET] /1/queries/popular/2015?size=2000 took 1.653882ms
-
+2018/07/17 23:47:18 server init...
+2018/07/17 23:47:18 selected file sample/hn_logs.tsv
+2018/07/17 23:47:18 initialisation took 157ns
+2018/07/17 23:47:18 server ready on port :8080
+2018/07/17 23:47:31 [GET] /1/queries/popular/2015?size=2000 took 7.343221463s
+2018/07/17 23:47:37 [GET] /1/queries/popular/2015?size=2000 took 1.444681ms
+^C
 ```
 
 The server package handles requests on `http://localhost:8080/` *by default*
@@ -87,7 +90,8 @@ response `200 OK`
 ```
 $>go get github.com/mdebelle/millionlogs
 $>cd $GOPATH/src/github.com/mdebelle/millionlogs
-$>go test
+$>go test ./data
+$>go test ./store
 ```
 
 

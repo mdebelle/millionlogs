@@ -31,7 +31,7 @@ func LoadOrCreate(date string) (data.Data, int, error) {
 		}
 		requests.Delete(date)
 	}
-	reg, status, err := buildRegexp(date)
+	reg, status, err := BuildRegexp(date)
 	if err != nil {
 		return nil, status, err
 	}

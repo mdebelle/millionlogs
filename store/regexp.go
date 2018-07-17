@@ -28,7 +28,7 @@ var acceptedDateFMT = regexp.MustCompile(
 		`|((\d{4})))$`,
 )
 
-func buildRegexp(date string) (*regexp.Regexp, int, error) {
+func BuildRegexp(date string) (*regexp.Regexp, int, error) {
 
 	if !acceptedDateFMT.MatchString(date) {
 		return nil, http.StatusBadRequest, fmt.Errorf("could not use '%s' as a date parameter: bad format", date)

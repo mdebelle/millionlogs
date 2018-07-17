@@ -13,6 +13,12 @@ import (
 
 var requests = &sync.Map{}
 
+// Requests accesible outside of pkg
+func Requests() *sync.Map { return requests }
+
+// ResetRequests set to zero requests content
+func ResetRequests() { requests = &sync.Map{} }
+
 // RankingAll apply the Ranking method for each Data stored
 func RankingAll() {
 	requests.Range(func(key, value interface{}) bool {
