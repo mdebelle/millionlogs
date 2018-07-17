@@ -39,7 +39,5 @@ func main() {
 	log.Println("initialisation took", time.Since(start))
 	log.Println("server ready on port", *port)
 
-	http.HandleFunc("/1/queries/count/", count)
-	http.HandleFunc("/1/queries/popular/", popular)
-	log.Fatal(http.ListenAndServe(*port, nil))
+	log.Fatal(http.ListenAndServe(*port, handler()))
 }

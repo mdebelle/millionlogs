@@ -1,10 +1,15 @@
 package query
 
+// Query contains
+// Query as the log line
+// Count as the number of times Query appears in the logsfile
 type Query struct {
 	Query string `json:"query"`
 	Count int32  `json:"count"`
 }
 
+// Queries is an alias for a slice of pointer to query
+// Queries implement sort interface
 type Queries []*Query
 
 func (q Queries) Len() int           { return len(q) }

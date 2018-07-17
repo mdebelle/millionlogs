@@ -21,8 +21,6 @@ func RankingAll() {
 	})
 }
 
-type insertFunc func(*regexp.Regexp, time.Time, []byte)
-
 // Scan the selected file which contains tone of logs
 func Scan(reg *regexp.Regexp, modif time.Time, f insertFunc) error {
 	content, err := os.Open(*Sample)

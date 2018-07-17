@@ -26,6 +26,13 @@ func chronoRequest(r *http.Request, start time.Time) {
 	)
 }
 
+func handler() http.Handler {
+	r := http.NewServeMux()
+	r.HandleFunc("/1/queries/count/", count)
+	r.HandleFunc("/1/queries/popular/", popular)
+	return r
+}
+
 func popular(w http.ResponseWriter, r *http.Request) {
 	start := time.Now()
 	defer chronoRequest(r, start)
@@ -36,22 +43,25 @@ func popular(w http.ResponseWriter, r *http.Request) {
 	}
 
 	date := strings.Replace(r.URL.Path, "/1/queries/popular/", "", 1)
-	size := r.URL.Query().Get("size")
 	v, status, err := store.LoadOrCreate(date)
 	if err != nil {
 		writeJson(w, err.Error(), status)
 		return
 	}
-	var max int
-	if size == "" {
-		max = 0
-	} else if max, err = strconv.Atoi(size); err != nil {
-		writeJson(w, err.Error(), http.StatusBadRequest)
+	text := r.FormValue("size")
+	if text == "" {
+		http.Error(w, "missing size", http.StatusBadRequest)
 		return
 	}
+	size, err := strconv.Atoi(text)
+	if err != nil {
+		http.Error(w, "not a number: "+text, http.StatusBadRequest)
+		return
+	}
+
 	writeJson(w, struct {
 		Queries interface{} `json:"queries"`
-	}{v.Popular(max)}, status)
+	}{v.Popular(size)}, status)
 }
 
 func count(w http.ResponseWriter, r *http.Request) {

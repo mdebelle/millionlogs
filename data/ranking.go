@@ -7,6 +7,7 @@ import (
 	"github.com/mdebelle/millionlogs/query"
 )
 
+// Ranking rank queries from the biggest counter to the smallest
 func (d *data) Ranking() int {
 	var insered = len(d.sorted)
 	if insered == 0 {
@@ -21,6 +22,8 @@ func (d *data) Ranking() int {
 	return insered
 }
 
+// Popular return the 'size' first's query sorted elements
+// return an empty slice if 'size' is lower or equal to zero
 func (d *data) Popular(size int) []*query.Query {
 
 	if size <= 0 {
