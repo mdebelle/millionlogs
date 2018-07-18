@@ -86,12 +86,3 @@ response `200 OK`
 
 **size** format should be a decimal number bigger than 0 (roman number are not tolerate)
 
-### tests
-```
-$>go get github.com/mdebelle/millionlogs
-$>cd $GOPATH/src/github.com/mdebelle/millionlogs
-$>go test ./data
-$>go test ./store
-```
-
-
