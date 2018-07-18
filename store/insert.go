@@ -23,7 +23,7 @@ func insert(date, query string, modif time.Time) {
 
 }
 
-type insertFunc func(*regexp.Regexp, time.Time, []byte)
+type InsertFunc func(*regexp.Regexp, time.Time, []byte)
 
 // Insert type insertFunc create or update Data only for the requested date
 func Insert(reg *regexp.Regexp, modif time.Time, logline []byte) {

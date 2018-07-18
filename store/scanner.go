@@ -2,7 +2,7 @@ package store
 
 import (
 	"bufio"
-	"log"
+	"fmt"
 	"os"
 	"regexp"
 	"sync"
@@ -28,10 +28,14 @@ func RankingAll() {
 }
 
 // Scan the selected file which contains tone of logs
-func Scan(reg *regexp.Regexp, modif time.Time, f insertFunc) error {
+func Scan(reg *regexp.Regexp, modif time.Time, f InsertFunc) error {
+	if Sample == nil {
+		return fmt.Errorf("could not open: file sample not set")
+	}
+
 	content, err := os.Open(*Sample)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	defer content.Close()
 

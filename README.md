@@ -17,7 +17,7 @@ Usage of $GOPATH/bin/millionlogs:
         preloading all data for faster requests but longer init
   -prerank
         preranking all data for faster requests but longer init
-  -sample
+  -sample string
         set your sample (.tsv) file path location (default "sample/small.tsv")
 $>wc -l sample/hn_logs.tsv
  1623420 sample/hn_logs.tsv

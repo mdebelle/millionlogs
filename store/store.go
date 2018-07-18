@@ -19,6 +19,10 @@ var Prerank *bool
 // this function take care of the file changement
 func LoadOrCreate(date string) (data.Data, int, error) {
 
+	if Sample == nil {
+		return nil, http.StatusInternalServerError, fmt.Errorf("could not open: file sample not set")
+	}
+
 	info, err := os.Lstat(*Sample)
 	if err != nil {
 		return nil, http.StatusInternalServerError, err
@@ -39,7 +43,7 @@ func LoadOrCreate(date string) (data.Data, int, error) {
 		return nil, http.StatusInternalServerError, err
 	}
 	if d, ok := requests.Load(date); ok {
-		if *Prerank {
+		if Prerank != nil && *Prerank {
 			d.(data.Data).Ranking()
 		}
 		return d.(data.Data), http.StatusOK, nil
