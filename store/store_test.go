@@ -17,7 +17,6 @@ func justReset() { store.ResetRequests() }
 func setuprequests() {
 	store.ResetRequests()
 	store.InsertAll(store.RegAll, date, []byte(`2015-08-01 00:03:43	http%3A%2F%2Ftechacute.com%2F10-essentials-every-desk-needs%2F`))
-
 }
 
 // func TestLoadOrCreate(date string) (data.Data, int, error)
@@ -57,5 +56,4 @@ func TestLoadOrCreate(t *testing.T) {
 			}
 		})
 	}
-
 }

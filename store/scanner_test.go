@@ -9,9 +9,6 @@ import (
 	"github.com/mdebelle/millionlogs/store"
 )
 
-// []byte(`2015-08-01 00:03:43	http%3A%2F%2Ftechacute.com%2F10-essentials-every-desk-needs%2F`)
-
-// Scan(reg *regexp.Regexp, modif time.Time, f insertFunc)
 func TestScan(t *testing.T) {
 	sampleName := "../sample/small.tsv"
 	sampleFake := "fakenews"
