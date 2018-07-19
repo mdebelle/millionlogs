@@ -86,4 +86,4 @@ response `200 OK`
 
 **size** format should be a decimal number bigger than 0 (roman number are not tolerate)
 
-some tests could fail if the big file 'hn_logs.tsv' is not in the sample folder
+some tests could fail if the big file 'hn_logs.tsv' is not in the sample folder available [here](https://www.dropbox.com/s/duv704waqjp3tu1/hn_logs.tsv.gz?dl=0)
